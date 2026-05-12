@@ -9,12 +9,21 @@ public class BasicGameApp {
     public BasicGameApp(){
         System.out.println("Welcome to Blackjack!");
         deck = new Card[52];
-        printInfo();
+        int counter = 0;
+        for(int x = 0; x<4; x++){ //4 suits
+            for (int i = 0; i<13; i++){//13 cards per suit
+                deck[counter] = new Card(x,1,i);
+                counter++;
+            }
+        }
+        shuffle();
+        printDeck();
+        me = new Player();
+        d = new Dealer();
     }
-    public void printInfo(){
-        for (int i = 0; i<13; i++){
-            deck[i] = new Card("diamonds",1,i);
-            deck[i].printInfo();
+    public void printDeck(){
+        for (int y = 0; y<deck.length; y++){
+            deck[y].printInfo();
         }
     }
 
@@ -26,7 +35,12 @@ public class BasicGameApp {
 
     }
     public void shuffle() {
-
+    for(int z=0; z<deck.length; z++){
+        int randomIndex = (int)(Math.random()*52);
+        Card spencer = deck[randomIndex];
+        deck[randomIndex] = deck[z];
+        deck[z]= spencer;
+    }
     }
 
 }
