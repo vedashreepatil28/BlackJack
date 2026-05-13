@@ -10,8 +10,11 @@ public class Player {
         cardTotal = 2;
         isBust = false;
         isHit = false;
-       // hand[3] = new Card();
         Name = "Me";
+        printPlayer();
+    }
+    public void printPlayer(){
+        System.out.println("the player has " + cardTotal + " cards. It is " +  isBust + " that the hand is bust. It is " + isHit + " the player hit. The player is named "+ Name);
     }
 
 
